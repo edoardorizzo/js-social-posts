@@ -86,7 +86,7 @@ posts.forEach((post) => {
         <div class="post__footer">
             <div class="likes js-likes">
                 <div class="likes__cta">
-                    <a class="like-button  js-like-button" href="#" data-postid="${post.id}">
+                    <a class="like-button  js-like-button" data-postid="${post.id}">
                         <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                         <span class="like-button__label">Mi Piace</span>
                     </a>
@@ -107,7 +107,6 @@ likeBtn.forEach(function(btn) {
   btn.addEventListener('click', function() {
     const textBtn = btn.querySelector('.like-button__label');
     const iconBtn = btn.querySelector('.like-button__icon');
-
     textBtn.style.color = 'red';
     iconBtn.style.color = 'red';
   });
