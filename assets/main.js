@@ -104,10 +104,10 @@ posts.forEach((post) => {
 const likeBtn = document.querySelectorAll('.like-button');
 
 likeBtn.forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    const textBtn = btn.querySelector('.like-button__label');
-    const iconBtn = btn.querySelector('.like-button__icon');
-    textBtn.style.color = 'red';
-    iconBtn.style.color = 'red';
+    btn.addEventListener('click', function() {
+      const textBtn = btn.querySelector('.like-button__label');
+      const iconBtn = btn.querySelector('.like-button__icon');
+      textBtn.classList.toggle('red');
+      iconBtn.classList.toggle = ('red');
+    });
   });
-});
