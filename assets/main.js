@@ -107,11 +107,10 @@ const iconBtn = document.querySelectorAll('.like-button__icon')
 
 likeBtn.forEach(function(btn) {
   btn.addEventListener('click', function() {
-    textBtn.forEach(function(text) {
-      text.style.color = 'red';
-    });
-    iconBtn.forEach(function(icon) {
-      icon.style.color = 'red';
-    });
+    const textBtn = btn.querySelector('.like-button__label');
+    const iconBtn = btn.querySelector('.like-button__icon');
+
+    textBtn.style.color = 'red';
+    iconBtn.style.color = 'red';
   });
 });
