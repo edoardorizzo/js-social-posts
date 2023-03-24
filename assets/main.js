@@ -58,6 +58,14 @@ const posts = [
 //console.log(posts);
 
 posts.forEach((post) => {
+    const createdDate = new Date(post.created);
+    const formattedDate = createdDate.toLocaleDateString('us-EU');
+
+    if (!post.author.image) {
+        const initials = post.author.name.split(' ').map((name) => name.charAt(0)).join('');
+        post.author.image = `https://ui-avatars.com/api/?name=${initials}&background=random&size=300`;
+    }
+
     const postMarkup = 
     `<div class="post">
         <div class="post__header">
@@ -67,7 +75,7 @@ posts.forEach((post) => {
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${post.author.name}</div>
-                    <div class="post-meta__time">${post.created}</div>
+                    <div class="post-meta__time">${formattedDate}</div>
                 </div>                    
             </div>
         </div>
@@ -91,4 +99,19 @@ posts.forEach((post) => {
     </div>`;
 
     document.getElementById('container').insertAdjacentHTML('beforeend', postMarkup);
+});
+
+const likeBtn = document.querySelectorAll('.like-button');
+const textBtn = document.querySelectorAll('.like-button__label');
+const iconBtn = document.querySelectorAll('.like-button__icon')
+
+likeBtn.forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    textBtn.forEach(function(text) {
+      text.style.color = 'red';
+    });
+    iconBtn.forEach(function(icon) {
+      icon.style.color = 'red';
+    });
+  });
 });
